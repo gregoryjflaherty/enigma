@@ -14,11 +14,11 @@ RSpec.describe do Key
     end
 
     it 'b_key' do
-      expect(key1.a_key).to be(12)
+      expect(key1.b_key).to be(12)
     end
 
     it 'c_key' do
-      expect(key1.a_key).to be(23)
+      expect(key1.c_key).to be(23)
     end
 
     it 'd_key' do
