@@ -22,7 +22,7 @@ RSpec.describe do Key
     end
 
     it 'd_key' do
-      expect(key1.a_key).to be(34)
+      expect(key1.d_key).to be(34)
     end
   end
 end
