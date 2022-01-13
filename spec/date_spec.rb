@@ -8,5 +8,9 @@ RSpec.describe do Date
     it 'exists' do
       expect(day).to be_a(Date)
     end
+
+    it 'a_shift' do
+      expect(day.a_shift).to be(4)
+    end
   end
 end
