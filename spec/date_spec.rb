@@ -26,7 +26,7 @@ RSpec.describe do Date
     end
 
     it 'd_shift' do
-      expect(day.c_shift).to be(1)
+      expect(day.d_shift).to be(1)
     end
   end
 end
