@@ -16,5 +16,9 @@ RSpec.describe do Key
     it 'b_key' do
       expect(key1.a_key).to be(12)
     end
+
+    it 'c_key' do
+      expect(key1.a_key).to be(23)
+    end
   end
 end
