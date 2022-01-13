@@ -6,7 +6,11 @@ RSpec.describe do Key
     let(:key1) {Key.new('01234')}
 
     it 'exists' do
-      expect(key).to be_a(Key)
+      expect(key1).to be_a(Key)
+    end
+
+    it 'a_key' do
+      expect(key1.a_key).to be(1)
     end
   end
 end
