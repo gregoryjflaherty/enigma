@@ -9,6 +9,10 @@ RSpec.describe do Date
       expect(day).to be_a(Date)
     end
 
+    it 'gets_last_four' do
+      expect(day.last_four).to be('3521')
+    end
+
     it 'a_shift' do
       expect(day.a_shift).to be(3)
     end
