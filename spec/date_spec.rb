@@ -10,7 +10,7 @@ RSpec.describe do Date
     end
 
     it 'gets_last_four' do
-      expect(day.last_four).to be('3521')
+      expect(day.last_four).to eq('3521')
     end
 
     it 'a_shift' do
