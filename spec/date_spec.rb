@@ -12,5 +12,9 @@ RSpec.describe do Date
     it 'a_shift' do
       expect(day.a_shift).to be(4)
     end
+
+    it 'b_shift' do
+      expect(day.b_shift).to be(40)
+    end
   end
 end
