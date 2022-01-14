@@ -12,5 +12,6 @@ RSpec.describe do Shift
     it 'has letters' do
       letters = ("a".."z").to_a << " "
       expect(shift.letters).to eq(letters)
+    end 
   end
 end
