@@ -67,5 +67,19 @@ RSpec.describe do Shift
       shift_array = [4, 17, 25, 8]
       expect(shift.change(@letters, message, shift_array)).to eq('lvjtsquwvbb')
     end
+
+    it 'ignores symbols' do
+      @letters = ("a".."z").to_a << " "
+      message = '!hello world!'
+      shift_array = [4, 17, 25, 8]
+      expect(shift.change(@letters, message, shift_array)).to eq('!lvjtsquwvbb!')
+    end
+
+    it 'ignores symbols bigly' do
+      @letters = ("a".."z").to_a << " "
+      message = '!@#$hi$#@!'
+      shift_array = [4, 17, 25, 8]
+      expect(shift.change(@letters, message, shift_array)).to eq('!@#$lz$#@!')
+    end
   end
 end
