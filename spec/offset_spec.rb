@@ -1,12 +1,12 @@
 require 'rspec'
-require './lib/date'
-RSpec.describe do Date
+require './lib/offset'
+RSpec.describe do Offset
 
   context 'setup' do
-    let(:day) {Date.new('040289')}
+    let(:day) {Offset.new('040289')}
 
     it 'exists' do
-      expect(day).to be_a(Date)
+      expect(day).to be_a(Offset)
     end
 
     it 'gets_last_four' do

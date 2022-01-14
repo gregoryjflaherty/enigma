@@ -1,5 +1,5 @@
 require './lib/key'
-require './lib/date'
+require './lib/offset'
 require './lib/cryptography'
 
 class Shift

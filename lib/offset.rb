@@ -1,11 +1,11 @@
-class Date
+class Offset
   attr_reader :last_four,
               :a_offset,
               :b_offset,
               :c_offset,
               :d_offset
 
-  def initialize(date)
+  def initialize(date = Date.today)
     @last_four = get_last_four(date)
     @a_offset = @last_four[0].to_i
     @b_offset = @last_four[1].to_i
@@ -18,3 +18,5 @@ class Date
     large_num.to_s[-4..-1]
   end
 end
+date = Date.new
+require "pry"; binding.pry
