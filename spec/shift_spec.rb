@@ -21,7 +21,7 @@ RSpec.describe do Shift
     end
 
     it 'has an offset' do
-      expect(shift.offset).to be_a(Date)
+      expect(shift.offset).to be_a(Offset)
     end
 
     it 'a shift' do
