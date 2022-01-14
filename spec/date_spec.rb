@@ -13,20 +13,20 @@ RSpec.describe do Date
       expect(day.last_four).to eq('3521')
     end
 
-    it 'a_shift' do
-      expect(day.a_shift).to be(3)
+    it 'a_offset' do
+      expect(day.a_offset).to be(3)
     end
 
-    it 'b_shift' do
-      expect(day.b_shift).to be(5)
+    it 'b_offset' do
+      expect(day.b_offset).to be(5)
     end
 
-    it 'c_shift' do
-      expect(day.c_shift).to be(2)
+    it 'c_offset' do
+      expect(day.c_offset).to be(2)
     end
 
-    it 'd_shift' do
-      expect(day.d_shift).to be(1)
+    it 'd_offset' do
+      expect(day.d_offset).to be(1)
     end
   end
 end
