@@ -11,4 +11,12 @@ module Cryptography
       end
     end
   end
+
+  def change(letters, message, shift_array)
+    new_message = []
+    message.split("").each_with_index do |letter, index|
+      new_message << rotate(letters, letter, shift_array[index])
+    end
+    new_message.join
+  end
 end
