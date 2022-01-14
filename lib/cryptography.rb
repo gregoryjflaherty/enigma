@@ -15,7 +15,8 @@ module Cryptography
   def change(letters, message, shift_array)
     new_message = []
     message.split("").each_with_index do |letter, index|
-      new_message << rotate(letters, letter, shift_array[index])
+      index > 3 ? new_index = index % 4 : new_index = index
+      new_message << rotate(letters, letter, shift_array[new_index])
     end
     new_message.join
   end
