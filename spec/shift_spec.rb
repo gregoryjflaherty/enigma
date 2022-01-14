@@ -39,5 +39,21 @@ RSpec.describe do Shift
     it 'd shift' do
       expect(shift.d_shift).to be(8)
     end
+
+    it 'rotates' do
+      @letters = ("a".."z").to_a << " "
+      letter = 'a'
+      shift_1 = 1
+      expect(shift.rotate(@letters, letter, shift_1)).to eq('b')
+    end
+
+    it 'rotates bigly' do
+      @letters = ("a".."z").to_a << " "
+      letter = 'j'
+      shift_1 = 25
+      expect(shift.rotate(@letters, letter, shift_1)).to eq('h')
+    end
+
+
   end
 end
