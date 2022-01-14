@@ -54,6 +54,11 @@ RSpec.describe do Shift
       expect(shift.rotate(@letters, letter, shift_1)).to eq('h')
     end
 
-
+    it 'changes message' do
+      @letters = ("a".."z").to_a << " "
+      message = 'abc'
+      shift_array = [1, 1, 1]
+      expect(shift.change(@letters, message, shift_array)).to eq('bcd')
+    end
   end
 end
