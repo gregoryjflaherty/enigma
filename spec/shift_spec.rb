@@ -56,9 +56,16 @@ RSpec.describe do Shift
 
     it 'changes message' do
       @letters = ("a".."z").to_a << " "
-      message = 'abc'
-      shift_array = [1, 1, 1]
-      expect(shift.change(@letters, message, shift_array)).to eq('bcd')
+      message = 'abcd'
+      shift_array = [1, 1, 1, 1]
+      expect(shift.change(@letters, message, shift_array)).to eq('bcde')
+    end
+
+    it 'changes message bigly' do
+      @letters = ("a".."z").to_a << " "
+      message = 'hello world'
+      shift_array = [4, 17, 25, 8]
+      expect(shift.change(@letters, message, shift_array)).to eq('lvjtsquwvbb')
     end
   end
 end
