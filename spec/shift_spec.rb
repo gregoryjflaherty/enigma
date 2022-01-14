@@ -17,13 +17,11 @@ RSpec.describe do Shift
     end
 
     it 'has a key' do
-      key1 = Key.new('01234')
-      expect(shift.key).to eq(key1)
+      expect(shift.key).to be_a(Key)
     end
 
     it 'has an offset' do
-      offset = Date.new('040289')
-      expect(shift.offset).to eq(offset)
+      expect(shift.offset).to be_a(Date)
     end
 
     it 'a shift' do
