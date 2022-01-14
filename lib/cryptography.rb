@@ -5,12 +5,9 @@ module Cryptography
 
   def rotate(letters, single_letter, shift)
     letters.each_with_index do |letter, index|
+      new_shift = index + shift
       if letter == single_letter
-        if (index + shift) > 27
-          return letters[once_around(index + shift)]
-        else
-          return letters[index + shift]
-        end
+        return letters[once_around(new_shift)]
       end
     end
   end
