@@ -8,5 +8,10 @@ RSpec.describe do Enigma
     it 'exists' do
       expect(machine).to be_a(Enigma)
     end
+
+    it 'has a key' do
+      expect(machine.key).to be_a(Key)
+      expect(machine.key.all_digits).to eq('01234')
+    end
   end
 end
