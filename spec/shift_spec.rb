@@ -25,5 +25,21 @@ RSpec.describe do Shift
       offset = Date.new('040289')
       expect(shift.offset).to eq(offset)
     end
+
+    it 'a shift' do
+      expect(shift.a_shift).to be(4)
+    end
+
+    it 'b shift' do
+      expect(shift.b_shift).to be(17)
+    end
+
+    it 'c shift' do
+      expect(shift.c_shift).to be(25)
+    end
+
+    it 'd shift' do
+      expect(shift.d_shift).to be(8)
+    end
   end
 end
