@@ -14,15 +14,6 @@ module Cryptography
 
   def change(letters, message, shift_array)
     new_message = []
-    message.split("").each_with_index do |letter, index|
-      index > 3 ? new_index = index % 4 : new_index = index
-      new_message << rotate(letters, letter, shift_array[new_index])
-    end
-    new_message.join
-  end
-
-  def change(letters, message, shift_array)
-    new_message = []
     symbols = 0
     message.split("").each_with_index do |letter, index|
       if !letters.include?(letter)
@@ -31,13 +22,13 @@ module Cryptography
         next
       end
       index -= symbols
-      index > 3 ? new_index = index % 4 : new_index = index
-      new_message << rotate(letters, letter, shift_array[new_index])
+      add_changed_letters(new_message, index, letter, letters, shift_array)
     end
     new_message.join
   end
 
-  # def ignore_symbols(letter, index)
-  #
-  # end
+  def add_changed_letters(new_message, index, letter, letters, shift_array)
+    index > 3 ? new_index = index % 4 : new_index = index
+    new_message << rotate(letters, letter, shift_array[new_index])
+  end
 end
