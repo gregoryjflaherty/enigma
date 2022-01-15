@@ -30,7 +30,7 @@ RSpec.describe do Shift
     end
 
     it 'produces_offset_set' do
-      expect(shift.produce_offset_set('040289')).to eq([01, 12, 23, 34])
+      expect(shift.produce_offset_set('040289')).to eq([3, 5, 2, 1])
     end
 
     xit 'has a shift array' do
