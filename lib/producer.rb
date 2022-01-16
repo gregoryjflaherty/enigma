@@ -22,7 +22,7 @@ module Producer
     key_set = produce_key_set(key)
     offset_set = produce_offset_set(date)
     key_set.each_with_index do |key, index|
-      shift_array << key + offset_set[index]
+      shift_array << once_around(key + offset_set[index])
     end
     shift_array
   end
