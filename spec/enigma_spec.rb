@@ -1,5 +1,6 @@
 require 'rspec'
 require './lib/enigma'
+require './lib/shift'
 RSpec.describe do Enigma
 
   context 'setup' do
@@ -14,11 +15,11 @@ RSpec.describe do Enigma
     end
 
     it 'has a date' do
-      expect(machine.key).to eq('040289')
+      expect(machine.date).to eq('040289')
     end
 
-    it 'has an offset/date' do
-      expect(machine.date).to be_a(Offset)
+    it 'has a shift' do
+      expect(machine.shift).to be_a(Shift)
     end
 
     it 'has a shift array' do
@@ -31,7 +32,7 @@ RSpec.describe do Enigma
         :key => '01234',
         :date => '040289'
       }
-      expect(machine.encrypt('!hello world!''01234', '040289')).to eq(output)
+      expect(machine.encrypt('!hello world!','01234', '040289')).to eq(output)
     end
   end
 end
