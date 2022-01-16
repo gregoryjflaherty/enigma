@@ -10,8 +10,19 @@ RSpec.describe do Enigma
     end
 
     it 'has a key' do
-      expect(machine.key).to be_a(Key)
-      expect(machine.key.all_digits).to eq('01234')
+      expect(machine.key).to eq('01234')
+    end
+
+    it 'has a date' do
+      expect(machine.key).to eq('040289')
+    end
+
+    it 'has an offset/date' do
+      expect(machine.date).to be_a(Offset)
+    end
+
+    it 'has a shift array' do
+      expect(machine.shift.shift_array).to eq([4, 17, 25, 8])
     end
   end
 end
