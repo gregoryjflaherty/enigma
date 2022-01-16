@@ -1,6 +1,7 @@
 require './lib/shift'
 
 class Enigma
+  attr_reader :message, :key, :date, :shift
 
   def initialize(message, key, date)
     @message = message
