@@ -3,5 +3,6 @@ class Enigma
     @message = message
     @key = key
     @date = date
+    @shift = Shift.new(@key, @date)
   end
 end
