@@ -24,5 +24,14 @@ RSpec.describe do Enigma
     it 'has a shift array' do
       expect(machine.shift.shift_array).to eq([4, 17, 25, 8])
     end
+
+    it 'gives encrypt hash' do
+      output = {
+        :encryption => '!lvjtsquwvbb!',
+        :key => '01234',
+        :date => '040289'
+      }
+      expect(machine.encrypt('!hello world!''01234', '040289')).to eq(output)
+    end
   end
 end
