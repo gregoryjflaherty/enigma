@@ -26,6 +26,18 @@ RSpec.describe do Enigma
       expect(machine.shift.shift_array).to eq([4, 17, 25, 8])
     end
 
+    it 'produces todays date' do
+      no_date = Enigma.new("Greg", '01234')
+      expect(no_date.date.class).to be_a(String)
+      expect(no_date.date.length).to be(6)
+    end
+
+    it 'produces random key' do
+      no_key = Enigma.new("Greg", '01234')
+      expect(no_key.date.class).to be_a(String)
+      expect(no_key.date.length).to be(6)
+    end
+
     it 'gives encrypt hash' do
       output = {
         :encryption => '!lvjtsquwvbb!',
