@@ -40,42 +40,50 @@ RSpec.describe do Shift
       @letters = ("a".."z").to_a << " "
       letter = 'a'
       shift_1 = 1
-      expect(shift.rotate(letter, shift_1)).to eq('b')
+      expect(shift.rotate('encrypt', letter, shift_1)).to eq('b')
     end
 
     it 'rotates bigly' do
       @letters = ("a".."z").to_a << " "
       letter = 'j'
       shift_1 = 25
-      expect(shift.rotate(letter, shift_1)).to eq('h')
+      expect(shift.rotate('encrypt', letter, shift_1)).to eq('h')
     end
 
     it 'changes message' do
       @letters = ("a".."z").to_a << " "
       message = 'abcd'
       shift_array = [1, 1, 1, 1]
-      expect(shift.change(message, shift_array)).to eq('bcde')
+      expect(shift.change('encrypt', message, shift_array)).to eq('bcde')
     end
 
     it 'changes message bigly' do
       @letters = ("a".."z").to_a << " "
       message = 'hello world'
       shift_array = [4, 17, 25, 8]
-      expect(shift.change( message, shift_array)).to eq('lvjtsquwvbb')
+      expect(shift.change('encrypt', message, shift_array)).to eq('lvjtsquwvbb')
     end
 
     it 'ignores symbols' do
       @letters = ("a".."z").to_a << " "
       message = '!hello world!'
       shift_array = [4, 17, 25, 8]
-      expect(shift.change( message, shift_array)).to eq('!lvjtsquwvbb!')
+      expect(shift.change('encrypt', message, shift_array)).to eq('!lvjtsquwvbb!')
     end
 
     it 'ignores symbols bigly' do
       @letters = ("a".."z").to_a << " "
       message = '!@#$hi$#@!'
       shift_array = [4, 17, 25, 8]
-      expect(shift.change(message, shift_array)).to eq('!@#$lz$#@!')
+      expect(shift.change('encrypt', message, shift_array)).to eq('!@#$lz$#@!')
     end
+
+    it 'decrypts' do
+      @letters = ("a".."z").to_a << " "
+      message = 'bcde'
+      shift_array = [1, 1, 1, 1]
+      expect(shift.change("decrypt", message, shift_array)).to eq('abcd')
+    end
+
   end
 end
