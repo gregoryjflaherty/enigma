@@ -1,6 +1,4 @@
 require './lib/shift'
-
-
 class Enigma
   include Producer
 
