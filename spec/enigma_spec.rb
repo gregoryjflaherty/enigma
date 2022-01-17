@@ -27,5 +27,14 @@ RSpec.describe do Enigma
       }
       expect(machine.decrypt('!lvjtsquwvbb!','01234', '040289')).to eq(output)
     end
+
+    it 'pattern test hash' do
+      output = {
+     encryption: "vjqtbeaweqihssi",
+     key: "08304",
+     date: "291018"
+   }
+      expect(machine.encrypt("hello world end", "08304", "291018")).to eq(output)
+    end
   end
 end
