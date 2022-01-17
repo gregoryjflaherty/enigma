@@ -1,13 +1,14 @@
 require './lib/command_line'
 
-require 'rspec'
 RSpec.describe do CommandLine
 
   context 'setup' do
+
     it 'encrypts w/ CLI' do
       test_file = File.open('./test_file.txt', 'r')
       test_file_2 = './test_file_2.txt'
       expect(CommandLine.encrypt_message(test_file, test_file_2)).to include("Created '#{test_file_2.to_s}'")
+    end
 
     it 'decrypts w/ CLI' do
       test_file = File.open('./test_file.txt', 'r')

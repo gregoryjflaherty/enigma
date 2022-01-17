@@ -1,9 +1,8 @@
 require 'simplecov'
 SimpleCov.start
-
 require 'rspec'
 require './lib/enigma'
-require './lib/shift'
+require './lib/date'
 RSpec.describe do Enigma
 
   context 'setup' do
