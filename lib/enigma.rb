@@ -1,12 +1,13 @@
 require './lib/shift'
 
+
 class Enigma
   include Producer
 
   def encrypt(message, key= produce_rand_key, date= produce_todays_date)
     shift = Shift.new(key, date)
     hash_output = {
-      :encryption => shift.change('encrypt', message, shift.shift_array),
+      :encryption => shift.change('encrypt', message.downcase, shift.shift_array),
       :key => key,
       :date => date
     }
@@ -15,7 +16,7 @@ class Enigma
   def decrypt(message, key, date = produce_todays_date)
     shift = Shift.new(key, date)
     hash_output = {
-      :decryption => shift.change('decrypt', message, shift.shift_array),
+      :decryption => shift.change('decrypt', message.downcase, shift.shift_array),
       :key => key,
       :date => date
     }
