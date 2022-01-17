@@ -1,3 +1,6 @@
+require 'simplecov'
+SimpleCov.start
+
 require 'rspec'
 require './lib/enigma'
 require './lib/shift'
@@ -35,6 +38,16 @@ RSpec.describe do Enigma
      date: "291018"
    }
       expect(machine.encrypt("hello world end", "08304", "291018")).to eq(output)
+    end
+
+    it 'has a random key' do
+     output = machine.encrypt("hello world end")
+     expect(output[:key].length).to eq(5)
+    end
+
+    it 'gives a date' do
+     output = machine.encrypt("hello world end")
+     expect(output[:date].length).to eq(6)
     end
   end
 end
