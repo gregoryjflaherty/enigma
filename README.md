@@ -1,5 +1,5 @@
-                                                                        ## Enigma
-                                      Final Project - Mod 1 - BE 2111 - Turing School of Software and Design 
+## Enigma
+Final Project - Mod 1 - BE 2111 - Turing School of Software and Design 
 
 ___Class Files___
 - enigma.rb      
@@ -26,7 +26,10 @@ ___Self Reflection___
 - Ares of improvement include but are not limited to:
   - deeper understanding of utilizing File I/O 
   - using mocks and stubs for more accurate testing
+  - understanding what to test for in areas of uncertainty
+  - writing higher test quantities, more edge cases
   - continued improvement using best class/method designs
+  - finding a better balance when writing readable code vs concise code
   - more effective preperation, mind-mapping and pseudocoding
 
 ___Repository by___
