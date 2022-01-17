@@ -1,6 +1,6 @@
 module Cryptography
   def once_around(shift)
-    shift > 27 ? shift % 27 : shift
+    shift >= 27 ? shift % 27 : shift
   end
 
   def change(encrypt_decrypt, message, shift_array)
