@@ -26,12 +26,12 @@ module Producer
     end
     shift_array
   end
-  
+
   def produce_todays_date
     Time.now.strftime("%m%d%y")
   end
 
   def produce_rand_key
-    rand(0..99999).to_s
+    rand(11111..99999).to_s
   end
 end
