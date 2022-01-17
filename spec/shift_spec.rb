@@ -1,7 +1,10 @@
+require 'simplecov'
+SimpleCov.start
+
 require 'rspec'
 require './lib/shift'
-require './lib/key'
-require './lib/date'
+require './lib/producer'
+
 RSpec.describe do Shift
 
   context 'setup' do
@@ -17,69 +20,73 @@ RSpec.describe do Shift
     end
 
     it 'has a key' do
-      expect(shift.key).to be_a(Key)
+      expect(shift.key).to eq('01234')
     end
 
     it 'has an offset' do
-      expect(shift.offset).to be_a(Date)
+      expect(shift.offset).to eq('040289')
     end
 
-    it 'a shift' do
-      expect(shift.a_shift).to be(4)
+    it 'produces_key_set' do
+      expect(shift.produce_key_set('01234')).to eq([01, 12, 23, 34])
     end
 
-    it 'b shift' do
-      expect(shift.b_shift).to be(17)
+    it 'produces_offset_set' do
+      expect(shift.produce_offset_set('040289')).to eq([3, 5, 2, 1])
     end
 
-    it 'c shift' do
-      expect(shift.c_shift).to be(25)
-    end
-
-    it 'd shift' do
-      expect(shift.d_shift).to be(8)
+    it 'has a shift array' do
+      expect(shift.shift_array).to eq([4, 17, 25, 8])
     end
 
     it 'rotates' do
       @letters = ("a".."z").to_a << " "
       letter = 'a'
       shift_1 = 1
-      expect(shift.rotate(@letters, letter, shift_1)).to eq('b')
+      expect(shift.rotate('encrypt', letter, shift_1)).to eq('b')
     end
 
     it 'rotates bigly' do
       @letters = ("a".."z").to_a << " "
       letter = 'j'
       shift_1 = 25
-      expect(shift.rotate(@letters, letter, shift_1)).to eq('h')
+      expect(shift.rotate('encrypt', letter, shift_1)).to eq('h')
     end
 
     it 'changes message' do
       @letters = ("a".."z").to_a << " "
       message = 'abcd'
       shift_array = [1, 1, 1, 1]
-      expect(shift.change(@letters, message, shift_array)).to eq('bcde')
+      expect(shift.change('encrypt', message, shift_array)).to eq('bcde')
     end
 
     it 'changes message bigly' do
       @letters = ("a".."z").to_a << " "
       message = 'hello world'
       shift_array = [4, 17, 25, 8]
-      expect(shift.change(@letters, message, shift_array)).to eq('lvjtsquwvbb')
+      expect(shift.change('encrypt', message, shift_array)).to eq('lvjtsquwvbb')
     end
 
     it 'ignores symbols' do
       @letters = ("a".."z").to_a << " "
       message = '!hello world!'
       shift_array = [4, 17, 25, 8]
-      expect(shift.change(@letters, message, shift_array)).to eq('!lvjtsquwvbb!')
+      expect(shift.change('encrypt', message, shift_array)).to eq('!lvjtsquwvbb!')
     end
 
     it 'ignores symbols bigly' do
       @letters = ("a".."z").to_a << " "
       message = '!@#$hi$#@!'
       shift_array = [4, 17, 25, 8]
-      expect(shift.change(@letters, message, shift_array)).to eq('!@#$lz$#@!')
+      expect(shift.change('encrypt', message, shift_array)).to eq('!@#$lz$#@!')
     end
+
+    it 'decrypts' do
+      @letters = ("a".."z").to_a << " "
+      message = 'bcde'
+      shift_array = [1, 1, 1, 1]
+      expect(shift.change("decrypt", message, shift_array)).to eq('abcd')
+    end
+
   end
 end
