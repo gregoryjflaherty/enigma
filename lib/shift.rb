@@ -10,6 +10,8 @@ class Shift
               :shift_array
 
   def initialize(key, date)
+    @key = key
+    @offset = date
     @letters = ("a".."z").to_a << " "
     @shift_array = produce_shift_array(key, date)
   end
