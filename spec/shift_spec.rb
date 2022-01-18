@@ -2,6 +2,8 @@ require 'simplecov'
 SimpleCov.start
 require './lib/date'
 require './lib/producer'
+require './lib/cryptography'
+
 
 RSpec.describe do Shift
 
