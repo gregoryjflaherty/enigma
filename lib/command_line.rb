@@ -9,7 +9,7 @@ class CommandLine
     encrypted_message = machine.encrypt(text.strip)
     output = File.open(file.to_s, 'w')
     output.write(encrypted_message[:encryption])
-    "Created '#{file.to_s}' with the key #{encrypted_message[:key]} and the date #{encrypted_message[:date]}"
+    puts "Created '#{file.to_s}' with the key #{encrypted_message[:key]} and the date #{encrypted_message[:date]}"
   end
 
   def self.decrypt_message(message, file = ARGV[1], key = ARGV[2], date = ARGV[3])
@@ -19,6 +19,6 @@ class CommandLine
     decrypted_message = machine.decrypt(text.strip, key, date)
     output = File.open(file.to_s, 'w')
     output.write(decrypted_message[:decryption])
-    "Created '#{file.to_s}' with the key #{decrypted_message[:key]} and the date #{decrypted_message[:date]}"
+    puts "Created '#{file.to_s}' with the key #{decrypted_message[:key]} and the date #{decrypted_message[:date]}"
   end
 end
